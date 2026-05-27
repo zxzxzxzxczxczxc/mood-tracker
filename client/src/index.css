@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: "Montserrat", sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(130, 119, 153, 0.6),
+      rgba(13, 10, 19, 0.6)
+    ),
+    url("/img/dg.png");
+
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: white;
+}
