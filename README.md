@@ -139,3 +139,28 @@
 ![maing png image](pic/hi8.png)
 ![maing png image](pic/hi9.png)
 ![maing png image](pic/hi10.png)
+
+---
+
+# Базы данных
+
+## Список таблиц баз данных
+![maing png image](pic/dt.png)
+## Структура таблицы User
+![maing png image](pic/User.png)
+## Структура таблицы MoodEntry
+![maing png image](pic/MoodEntry.png)
+## Структура таблицы prisma migration
+![maing png image](pic/prisma_migrations.png)
+## SELECT 
+![maing png image](pic/SELECT.png)
+## SELECT WHERE
+![maing png image](pic/SELECT WHERE.png)
+## INSERT 
+![maing png image](pic/INSERT.png)
+## UPDATE
+![maing png image](pic/UPDATE.png)
+## DELETE
+![maing png image](pic/DELETE.png)
+## JOIN
+![maing png image](pic/JOIN.png)
