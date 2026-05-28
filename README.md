@@ -72,7 +72,7 @@
 ---
 
 ## Use-case диаграмма
-![maing png image](Use-case.png)
+![maing png image](pic/Use-case.png)
 
 ---
 
