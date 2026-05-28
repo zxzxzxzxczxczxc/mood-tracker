@@ -155,7 +155,7 @@
 ## SELECT 
 ![maing png image](pic/SELECT.png)
 ## SELECT WHERE
-![maing png image](pic/SELECT WHERE.png)
+![maing png image](pic/SELECT_WHERE.png)
 ## INSERT 
 ![maing png image](pic/INSERT.png)
 ## UPDATE
