@@ -156,13 +156,15 @@ const response = await axios.get(
 
   const activityStats = calculateActivityStats()
 
-  const topPositive = [...activityStats]
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
+  const topPositive = activityStats
+  .filter((item) => item.avg > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
 
-  const topNegative = [...activityStats]
-    .sort((a, b) => a.score - b.score)
-    .slice(0, 3)
+const topNegative = activityStats
+  .filter((item) => item.avg < 0)
+  .sort((a, b) => a.score - b.score)
+  .slice(0, 3)
 
   const renderTopCard = (item, index, positive = true) => {
     if (!item) return null
