@@ -115,28 +115,27 @@ export default function HistoryPage() {
   }, [])
 
   const fetchHistory = async () => {
-  try {
-    const token = localStorage.getItem("token")
+    try {
+      const token = localStorage.getItem("token")
 
-    if (!token) {
-      return
-    }
-
-    const response = await axios.get(
-      "http://localhost:5000/moods",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      if (!token) {
+        return
       }
-    )
 
-    setEntries(response.data || [])
+      const response = await axios.get(
+        "http://localhost:5000/moods",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
 
-  } catch (error) {
-    console.log(error)
+      setEntries(response.data || [])
+    } catch (error) {
+      console.log(error)
+    }
   }
-}
 
   let filteredEntries = [...entries]
 
@@ -183,11 +182,8 @@ export default function HistoryPage() {
 
   return (
     <div className="max-w-[1650px] mx-auto px-6">
-
       <div className="flex gap-5 mt-7 mb-5">
-
         <div className="flex gap-3">
-
           <select
             value={selectedActivity}
             onChange={(e) =>
@@ -241,7 +237,10 @@ export default function HistoryPage() {
             "
           >
             {moods.map((mood) => (
-              <option key={mood} value={mood}>
+              <option
+                key={mood}
+                value={mood}
+              >
                 {mood === "all"
                   ? "Все оценки"
                   : mood > 0
@@ -286,7 +285,6 @@ export default function HistoryPage() {
             От худших к лучшим
           </option>
         </select>
-
       </div>
 
       <div
@@ -301,7 +299,6 @@ export default function HistoryPage() {
         "
       >
         <div className="flex flex-col gap-4">
-
           {filteredEntries.length === 0 && (
             <div className="text-center text-white text-2xl mt-10">
               История пока пуста
@@ -336,7 +333,6 @@ export default function HistoryPage() {
                 "
               >
                 <div className="flex items-center gap-5 min-w-0 flex-1">
-
                   <div
                     className="
                       w-[74px] h-[74px]
@@ -368,7 +364,6 @@ export default function HistoryPage() {
                   </div>
 
                   <div className="flex-1 min-w-0 mr-10">
-
                     <div
                       className="
                         text-[#614D6B]

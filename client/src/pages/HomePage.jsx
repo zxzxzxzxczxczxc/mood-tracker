@@ -50,74 +50,77 @@ const activities = [
 ]
 
 export default function HomePage() {
-  const [selectedMood, setSelectedMood] = useState(null)
-  const [selectedActivity, setSelectedActivity] = useState("")
+  const [selectedMood, setSelectedMood] =
+    useState(null)
+
+  const [selectedActivity, setSelectedActivity] =
+    useState("")
+
   const [note, setNote] = useState("")
+
   const [message, setMessage] = useState("")
+
   const handleSubmit = async () => {
+    if (selectedMood === null) {
+      setMessage("выберите оценку настроения")
 
-  if (selectedMood === null) {
-    setMessage("выберите оценку настроения")
+      setTimeout(() => {
+        setMessage("")
+      }, 2500)
 
-    setTimeout(() => {
-      setMessage("")
-    }, 2500)
+      return
+    }
 
-    return
+    if (!selectedActivity) {
+      setMessage("выберите занятие")
+
+      setTimeout(() => {
+        setMessage("")
+      }, 2500)
+
+      return
+    }
+
+    try {
+      const token = localStorage.getItem("token")
+
+      await axios.post(
+        "http://localhost:5000/moods",
+        {
+          mood: selectedMood,
+          activity: selectedActivity,
+          note,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+
+      setMessage("запись сохранена")
+
+      setTimeout(() => {
+        setMessage("")
+      }, 2500)
+
+      setSelectedMood(null)
+      setSelectedActivity("")
+      setNote("")
+    } catch (error) {
+      console.log(error)
+
+      setMessage("ошибка сохранения")
+
+      setTimeout(() => {
+        setMessage("")
+      }, 2500)
+    }
   }
-
-  if (!selectedActivity) {
-    setMessage("выберите занятие")
-
-    setTimeout(() => {
-      setMessage("")
-    }, 2500)
-
-    return
-  }
-
-  try {
-const token = localStorage.getItem("token")
-
-await axios.post(
-  "http://localhost:5000/moods",
-  {
-    mood: selectedMood,
-    activity: selectedActivity,
-    note,
-  },
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-)
-
-    setMessage("запись сохранена")
-
-    setTimeout(() => {
-      setMessage("")
-    }, 2500)
-
-    setSelectedMood(null)
-    setSelectedActivity("")
-    setNote("")
-
-  } catch (error) {
-    console.log(error)
-
-    setMessage("ошибка сохранения")
-
-    setTimeout(() => {
-      setMessage("")
-    }, 2500)
-  }
-}
 
   return (
     <div className="max-w-[1800px] mx-auto px-6 pb-6 -mt-0">
       <div className="flex gap-5 items-start justify-center mt-7">
-
         <div
           className="
             w-[740px] h-[730px]
@@ -133,7 +136,9 @@ await axios.post(
             {activities.map((activity) => (
               <button
                 key={activity.name}
-                onClick={() => setSelectedActivity(activity.name)}
+                onClick={() =>
+                  setSelectedActivity(activity.name)
+                }
                 className={`
                   w-full min-h-[98px]
                   rounded-[26px]
@@ -206,7 +211,8 @@ await axios.post(
                 <img
                   src={
                     activities.find(
-                      (a) => a.name === selectedActivity
+                      (a) =>
+                        a.name === selectedActivity
                     )?.icon
                   }
                   className="w-10 h-10"
@@ -227,8 +233,12 @@ await axios.post(
               {moodButtons.map((mood) => (
                 <button
                   key={mood.value}
-                  onClick={() => setSelectedMood(mood.value)}
-                  style={{ backgroundColor: mood.color }}
+                  onClick={() =>
+                    setSelectedMood(mood.value)
+                  }
+                  style={{
+                    backgroundColor: mood.color,
+                  }}
                   className={`
                     w-[53px] h-[64px]
                     rounded-[12px]
@@ -264,7 +274,9 @@ await axios.post(
             <textarea
               placeholder="Как вы себя чувствовали? Что случилось? Почему так вышло?"
               value={note}
-              onChange={(e) => setNote(e.target.value)}
+              onChange={(e) =>
+                setNote(e.target.value)
+              }
               className="
                 w-full h-[190px]
                 rounded-[30px]
@@ -301,45 +313,44 @@ await axios.post(
                 сохранить
               </button>
             </div>
-
           </div>
         </div>
-
       </div>
+
       {message && (
-  <div
-    className="
-      fixed
-      inset-0
-      flex items-center justify-center
-      z-50
-      pointer-events-none
-    "
-  >
-    <div
-      className="
-        px-10
-        py-5
+        <div
+          className="
+            fixed
+            inset-0
+            flex items-center justify-center
+            z-50
+            pointer-events-none
+          "
+        >
+          <div
+            className="
+              px-10
+              py-5
 
-        rounded-[28px]
+              rounded-[28px]
 
-        backdrop-blur-md
-        bg-white/30
-        border border-white/40
+              backdrop-blur-md
+              bg-white/30
+              border border-white/40
 
-        text-[#614D6B]
-        text-[30px]
-        font-medium
+              text-[#614D6B]
+              text-[30px]
+              font-medium
 
-        shadow-xl
+              shadow-xl
 
-        animate-[fadeIn_.3s_ease]
-      "
-    >
-      {message}
-    </div>
-  </div>
-)}
+              animate-[fadeIn_.3s_ease]
+            "
+          >
+            {message}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -20,11 +20,11 @@ app.use(
   })
 )
 
-
 app.get("/", (req, res) => {
-  res.json({ message: "Mood Tracker API работает 🚀" })
+  res.json({
+    message: "Mood Tracker API работает 🚀",
+  })
 })
-
 
 app.get("/test-db", async (req, res) => {
   try {
@@ -44,23 +44,25 @@ app.get("/test-db", async (req, res) => {
   }
 })
 
-
 app.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body
 
-    const existingUser = await prisma.user.findUnique({
-      where: { email },
-    })
+    const existingUser =
+      await prisma.user.findUnique({
+        where: { email },
+      })
 
     if (existingUser) {
       return res.status(400).json({
         success: false,
-        message: "Пользователь уже существует",
+        message:
+          "Пользователь уже существует",
       })
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword =
+      await bcrypt.hash(password, 10)
 
     const user = await prisma.user.create({
       data: {
@@ -91,7 +93,6 @@ app.post("/register", async (req, res) => {
   }
 })
 
-
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body
@@ -107,10 +108,11 @@ app.post("/login", async (req, res) => {
       })
     }
 
-    const isPasswordCorrect = await bcrypt.compare(
-      password,
-      user.password
-    )
+    const isPasswordCorrect =
+      await bcrypt.compare(
+        password,
+        user.password
+      )
 
     if (!isPasswordCorrect) {
       return res.status(400).json({
@@ -140,10 +142,14 @@ app.post("/login", async (req, res) => {
   }
 })
 
-
-const authMiddleware = (req, res, next) => {
+const authMiddleware = (
+  req,
+  res,
+  next
+) => {
   try {
-    const authHeader = req.headers.authorization
+    const authHeader =
+      req.headers.authorization
 
     if (!authHeader) {
       return res.status(401).json({
@@ -152,7 +158,8 @@ const authMiddleware = (req, res, next) => {
       })
     }
 
-    const token = authHeader.split(" ")[1]
+    const token =
+      authHeader.split(" ")[1]
 
     const decoded = jwt.verify(
       token,
@@ -170,60 +177,70 @@ const authMiddleware = (req, res, next) => {
   }
 }
 
+app.post(
+  "/moods",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      const { mood, activity, note } =
+        req.body
 
-app.post("/moods", authMiddleware, async (req, res) => {
-  try {
-    const { mood, activity, note } = req.body
+      const newEntry =
+        await prisma.moodEntry.create({
+          data: {
+            mood,
+            activity,
+            note,
+            userId: req.userId,
+          },
+        })
 
-    const newEntry = await prisma.moodEntry.create({
-      data: {
-        mood,
-        activity,
-        note,
-        userId: req.userId,
-      },
-    })
+      res.json({
+        success: true,
+        entry: newEntry,
+      })
+    } catch (error) {
+      console.log(error)
 
-    res.json({
-      success: true,
-      entry: newEntry,
-    })
-  } catch (error) {
-    console.log(error)
-
-    res.status(500).json({
-      success: false,
-      error: "Ошибка сервера",
-    })
+      res.status(500).json({
+        success: false,
+        error: "Ошибка сервера",
+      })
+    }
   }
-})
+)
 
+app.get(
+  "/moods",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      const moods =
+        await prisma.moodEntry.findMany({
+          where: {
+            userId: req.userId,
+          },
+          orderBy: {
+            createdAt: "desc",
+          },
+        })
 
-app.get("/moods", authMiddleware, async (req, res) => {
-  try {
-    const moods = await prisma.moodEntry.findMany({
-      where: {
-        userId: req.userId,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-    })
+      res.json(moods)
+    } catch (error) {
+      console.log(error)
 
-    res.json(moods)
-  } catch (error) {
-    console.log(error)
-
-    res.status(500).json({
-      success: false,
-      error: "Ошибка получения записей",
-    })
+      res.status(500).json({
+        success: false,
+        error: "Ошибка получения записей",
+      })
+    }
   }
-})
-
+)
 
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`)
+  console.log(
+    `Server started on port ${PORT}`
+  )
 })

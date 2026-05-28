@@ -21,36 +21,36 @@ export default function RegisterPage() {
   const handleRegister = async () => {
     if (!name || !email || !password) {
       showMessage("заполните все поля")
+
       return
     }
 
     try {
       const response = await axios.post(
-  "http://localhost:5000/register",
-  {
-    name,
-    email,
-    password,
-  }
-)
+        "http://localhost:5000/register",
+        {
+          name,
+          email,
+          password,
+        }
+      )
 
-localStorage.setItem(
-  "token",
-  response.data.token
-)
+      localStorage.setItem(
+        "token",
+        response.data.token
+      )
 
-showMessage("аккаунт создан")
+      showMessage("аккаунт создан")
 
-setTimeout(() => {
-  navigate("/")
-}, 1200)
+      setTimeout(() => {
+        navigate("/")
+      }, 1200)
 
       showMessage("аккаунт создан")
 
       setTimeout(() => {
         navigate("/login")
       }, 1200)
-
     } catch (error) {
       console.log(error)
 
@@ -60,7 +60,6 @@ setTimeout(() => {
 
   return (
     <div className="h-screen overflow-hidden flex items-center justify-center px-6 -mt-18">
-
       <div
         className="
           w-[620px]
@@ -86,7 +85,6 @@ setTimeout(() => {
         </h1>
 
         <div className="flex flex-col gap-6">
-
           <input
             type="text"
             placeholder="имя"
@@ -193,7 +191,6 @@ setTimeout(() => {
               войти
             </Link>
           </div>
-
         </div>
       </div>
 
@@ -227,7 +224,6 @@ setTimeout(() => {
           </div>
         </div>
       )}
-
     </div>
   )
 }

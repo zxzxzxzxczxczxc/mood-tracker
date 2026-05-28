@@ -39,7 +39,6 @@ export default function LoginPage() {
       setTimeout(() => {
         navigate("/")
       }, 1200)
-
     } catch (error) {
       console.log(error)
 
@@ -53,7 +52,6 @@ export default function LoginPage() {
 
   return (
     <div className="h-screen overflow-hidden flex items-center justify-center px-6 -mt-18">
-
       <div
         className="
           w-[640px]
@@ -79,7 +77,6 @@ export default function LoginPage() {
         </h1>
 
         <div className="flex flex-col gap-5 -mt-2">
-
           <input
             type="email"
             placeholder="email"
@@ -163,7 +160,6 @@ export default function LoginPage() {
               регистрация
             </Link>
           </div>
-
         </div>
       </div>
 
@@ -197,7 +193,6 @@ export default function LoginPage() {
           </div>
         </div>
       )}
-
     </div>
   )
 }
