@@ -79,63 +79,63 @@
 # Figma
 
 ## Страница регистрации 
-![maing png image](registration.png)
+![maing png image](pic/registration.png)
 ## Страница входа 
-![maing png image](entrance.png)
+![maing png image](pic/entrance.png)
 ## Страница статистика 
-![maing png image](statistics.png)
+![maing png image](pic/statistics.png)
 ## Страница выбора 
-![maing png image](choice.png)
+![maing png image](pic/choice.png)
 ## Страница истории 
-![maing png image](story.png)
+![maing png image](pic/story.png)
 
 ---
 
 # Верста и логика страниц 
 
 ## Страница регистрации 
-![maing png image](re1.png)
-![maing png image](re2.png)
-![maing png image](re3.png)
-![maing png image](re4.png)
-![maing png image](re5.png)
+![maing png image](pic/re1.png)
+![maing png image](pic/re2.png)
+![maing png image](pic/re3.png)
+![maing png image](pic/re4.png)
+![maing png image](pic/re5.png)
 
 ## Страница входа 
-![maing png image](lo1.png)
-![maing png image](lo2.png)
-![maing png image](lo3.png)
-![maing png image](lo4.png)
-![maing png image](lo5.png)
+![maing png image](pic/lo1.png)
+![maing png image](pic/lo2.png)
+![maing png image](pic/lo3.png)
+![maing png image](pic/lo4.png)
+![maing png image](pic/lo5.png)
 
 ## Страница статистика 
-![maing png image](st1.png)
-![maing png image](st2.png)
-![maing png image](st3.png)
-![maing png image](st4.png)
-![maing png image](st5.png)
-![maing png image](st6.png)
-![maing png image](st7.png)
-![maing png image](st8.png)
-![maing png image](st9.png)
+![maing png image](pic/st1.png)
+![maing png image](pic/st2.png)
+![maing png image](pic/st3.png)
+![maing png image](pic/st4.png)
+![maing png image](pic/st5.png)
+![maing png image](pic/st6.png)
+![maing png image](pic/st7.png)
+![maing png image](pic/st8.png)
+![maing png image](pic/st9.png)
 
 ## Страница выбора 
-![maing png image](ho1.png)
-![maing png image](ho2.png)
-![maing png image](ho3.png)
-![maing png image](ho4.png)
-![maing png image](ho5.png)
-![maing png image](ho6.png)
-![maing png image](ho7.png)
-![maing png image](ho8.png)
+![maing png image](pic/ho1.png)
+![maing png image](pic/ho2.png)
+![maing png image](pic/ho3.png)
+![maing png image](pic/ho4.png)
+![maing png image](pic/ho5.png)
+![maing png image](pic/ho6.png)
+![maing png image](pic/ho7.png)
+![maing png image](pic/ho8.png)
 
 ## Страница истории 
-![maing png image](hi1.png)
-![maing png image](hi2.png)
-![maing png image](hi3.png)
-![maing png image](hi4.png)
-![maing png image](hi5.png)
-![maing png image](hi6.png)
-![maing png image](hi7.png)
-![maing png image](hi8.png)
-![maing png image](hi9.png)
-![maing png image](hi10.png)
+![maing png image](pic/hi1.png)
+![maing png image](pic/hi2.png)
+![maing png image](pic/hi3.png)
+![maing png image](pic/hi4.png)
+![maing png image](pic/hi5.png)
+![maing png image](pic/hi6.png)
+![maing png image](pic/hi7.png)
+![maing png image](pic/hi8.png)
+![maing png image](pic/hi9.png)
+![maing png image](pic/hi10.png)
