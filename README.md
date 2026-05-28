@@ -164,3 +164,5 @@
 ![maing png image](pic/DELETE.png)
 ## JOIN
 ![maing png image](pic/JOIN.png)
+## er-диаграмма
+![maing png image](pic/er.png)
