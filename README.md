@@ -89,3 +89,53 @@
 ## Страница истории 
 ![maing png image](story.png)
 
+---
+
+# Верста и логика страниц 
+
+## Страница регистрации 
+![maing png image](re1.png)
+![maing png image](re2.png)
+![maing png image](re3.png)
+![maing png image](re4.png)
+![maing png image](re5.png)
+
+## Страница входа 
+![maing png image](lo1.png)
+![maing png image](lo2.png)
+![maing png image](lo3.png)
+![maing png image](lo4.png)
+![maing png image](lo5.png)
+
+## Страница статистика 
+![maing png image](st1.png)
+![maing png image](st2.png)
+![maing png image](st3.png)
+![maing png image](st4.png)
+![maing png image](st5.png)
+![maing png image](st6.png)
+![maing png image](st7.png)
+![maing png image](st8.png)
+![maing png image](st9.png)
+
+## Страница выбора 
+![maing png image](ho1.png)
+![maing png image](ho2.png)
+![maing png image](ho3.png)
+![maing png image](ho4.png)
+![maing png image](ho5.png)
+![maing png image](ho6.png)
+![maing png image](ho7.png)
+![maing png image](ho8.png)
+
+## Страница истории 
+![maing png image](hi1.png)
+![maing png image](hi2.png)
+![maing png image](hi3.png)
+![maing png image](hi4.png)
+![maing png image](hi5.png)
+![maing png image](hi6.png)
+![maing png image](hi7.png)
+![maing png image](hi8.png)
+![maing png image](hi9.png)
+![maing png image](hi10.png)
